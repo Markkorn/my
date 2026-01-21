@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Сказки для ПК</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app__header">
+        <div>
+          <h1>Сказки для ПК</h1>
+          <p>Подберите настроение и начните читать прямо сейчас.</p>
+        </div>
+        <div class="header__actions">
+          <button id="themeToggle" class="button button--ghost" type="button">
+            Тема: светлая
+          </button>
+          <button id="randomBtn" class="button" type="button">Случайная сказка</button>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="panel__controls">
+          <label class="field">
+            <span>Поиск по названию</span>
+            <input id="searchInput" type="search" placeholder="Например, Волшебный лес" />
+          </label>
+          <label class="field">
+            <span>Настроение</span>
+            <select id="moodSelect">
+              <option value="all">Все</option>
+              <option value="добрая">Добрая</option>
+              <option value="таинственная">Таинственная</option>
+              <option value="смелая">Смелая</option>
+              <option value="сонная">Сонная</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Размер текста</span>
+            <input id="fontSize" type="range" min="16" max="24" value="18" />
+          </label>
+        </div>
+      </section>
+
+      <main class="content">
+        <aside class="story-list" aria-label="Список сказок">
+          <ul id="storyList"></ul>
+        </aside>
+        <article class="story-reader">
+          <header>
+            <h2 id="storyTitle">Выберите сказку</h2>
+            <p id="storyMeta" class="story-meta">Описание появится здесь.</p>
+          </header>
+          <div id="storyText" class="story-text">
+            <p>В списке слева собраны короткие сказки. Выберите любую, чтобы читать.</p>
+          </div>
+        </article>
+      </main>
+
+      <footer class="app__footer">
+        <p>Совет: включите ночной режим, чтобы читать перед сном.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
