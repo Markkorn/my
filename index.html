@@ -9,9 +9,10 @@
   <body>
     <div class="app">
       <header class="app__header">
-        <div>
+        <div class="brand">
+          <span class="brand__badge">Коллекция сказок</span>
           <h1>Сказки для ПК</h1>
-          <p>Подберите настроение и начните читать прямо сейчас.</p>
+          <p>Красочное меню, умные фильтры и уютный режим чтения для вечерних историй.</p>
         </div>
         <div class="header__actions">
           <button id="themeToggle" class="button button--ghost" type="button">
@@ -21,7 +22,40 @@
         </div>
       </header>
 
-      <section class="panel">
+      <section class="hero">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Добро пожаловать</p>
+          <h2>Соберите настроение и откройте любимую историю</h2>
+          <p class="hero__lead">
+            Выберите сказку по настроению, включите ночной режим и настройте размер текста —
+            всё уже готово для чтения.
+          </p>
+          <div class="hero__actions">
+            <button id="startReading" class="button button--primary" type="button">
+              Начать чтение
+            </button>
+            <button id="openCatalog" class="button button--ghost" type="button">
+              Открыть каталог
+            </button>
+          </div>
+        </div>
+        <div class="hero__menu" aria-label="Главное меню">
+          <article class="menu-card">
+            <h3>Каталог сказок</h3>
+            <p>Собрание коротких историй для чтения в один вечер.</p>
+          </article>
+          <article class="menu-card">
+            <h3>Настроение дня</h3>
+            <p>Фильтруйте истории по настроению — добрые, смелые и таинственные.</p>
+          </article>
+          <article class="menu-card">
+            <h3>Ночной режим</h3>
+            <p>Переключайтесь на тёмную тему и отдыхайте глазами.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="readerSection">
         <div class="panel__controls">
           <label class="field">
             <span>Поиск по названию</span>

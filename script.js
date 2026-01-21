@@ -70,6 +70,9 @@ const moodSelect = document.getElementById('moodSelect');
 const fontSize = document.getElementById('fontSize');
 const themeToggle = document.getElementById('themeToggle');
 const randomBtn = document.getElementById('randomBtn');
+const startReading = document.getElementById('startReading');
+const openCatalog = document.getElementById('openCatalog');
+const readerSection = document.getElementById('readerSection');
 
 let activeStoryId = null;
 
@@ -145,6 +148,12 @@ fontSize.addEventListener('input', (event) => {
 });
 randomBtn.addEventListener('click', setRandomStory);
 themeToggle.addEventListener('click', toggleTheme);
+startReading.addEventListener('click', () => {
+  readerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+openCatalog.addEventListener('click', () => {
+  storyList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
 
 setActiveStory(stories[0].id);
 renderStories();
