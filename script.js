@@ -152,12 +152,15 @@ const profileStorageKey = 'fairyProfile';
 
 const renderProfile = (profile) => {
   if (!profile) {
-    profileDisplay.innerHTML =
-      '<p>Пока профиль пуст. Заполните форму справа, чтобы создать свой уголок чтения.</p>';
+    profileDisplay.innerHTML = `
+      <div class="profile__status">Профиль не создан</div>
+      <p>Пока профиль пуст. Заполните форму справа, чтобы создать свой уголок чтения.</p>
+    `;
     return;
   }
 
   profileDisplay.innerHTML = `
+    <div class="profile__status">Профиль сохранён</div>
     <h3>Привет, ${profile.name}!</h3>
     <p>Возраст: ${profile.age}</p>
     <p>Любимое настроение: ${profile.mood}</p>
