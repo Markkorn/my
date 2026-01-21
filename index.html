@@ -55,6 +55,43 @@
         </div>
       </section>
 
+      <section class="profile">
+        <div class="profile__intro">
+          <h2>Ваш профиль читателя</h2>
+          <p>Добавьте имя и любимое настроение — приложение запомнит их для следующих встреч.</p>
+          <div id="profileDisplay" class="profile__display">
+            <p>Пока профиль пуст. Заполните форму справа, чтобы создать свой уголок чтения.</p>
+          </div>
+        </div>
+        <form id="profileForm" class="profile__form">
+          <label class="field">
+            <span>Имя</span>
+            <input id="profileName" type="text" placeholder="Например, София" required />
+          </label>
+          <label class="field">
+            <span>Возраст</span>
+            <input id="profileAge" type="number" min="3" max="120" placeholder="8" required />
+          </label>
+          <label class="field">
+            <span>Любимое настроение</span>
+            <select id="profileMood" required>
+              <option value="добрая">Добрая</option>
+              <option value="таинственная">Таинственная</option>
+              <option value="смелая">Смелая</option>
+              <option value="сонная">Сонная</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Пожелание себе</span>
+            <input id="profileWish" type="text" placeholder="Приятного чтения!" />
+          </label>
+          <div class="profile__actions">
+            <button class="button button--primary" type="submit">Сохранить профиль</button>
+            <button id="profileReset" class="button button--ghost" type="button">Сбросить</button>
+          </div>
+        </form>
+      </section>
+
       <section class="panel" id="readerSection">
         <div class="panel__controls">
           <label class="field">

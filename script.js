@@ -73,6 +73,13 @@ const randomBtn = document.getElementById('randomBtn');
 const startReading = document.getElementById('startReading');
 const openCatalog = document.getElementById('openCatalog');
 const readerSection = document.getElementById('readerSection');
+const profileForm = document.getElementById('profileForm');
+const profileName = document.getElementById('profileName');
+const profileAge = document.getElementById('profileAge');
+const profileMood = document.getElementById('profileMood');
+const profileWish = document.getElementById('profileWish');
+const profileDisplay = document.getElementById('profileDisplay');
+const profileReset = document.getElementById('profileReset');
 
 let activeStoryId = null;
 
@@ -141,6 +148,57 @@ const toggleTheme = () => {
   themeToggle.textContent = `Тема: ${isDark ? 'светлая' : 'тёмная'}`;
 };
 
+const profileStorageKey = 'fairyProfile';
+
+const renderProfile = (profile) => {
+  if (!profile) {
+    profileDisplay.innerHTML =
+      '<p>Пока профиль пуст. Заполните форму справа, чтобы создать свой уголок чтения.</p>';
+    return;
+  }
+
+  profileDisplay.innerHTML = `
+    <h3>Привет, ${profile.name}!</h3>
+    <p>Возраст: ${profile.age}</p>
+    <p>Любимое настроение: ${profile.mood}</p>
+    ${profile.wish ? `<p>Пожелание: ${profile.wish}</p>` : ''}
+  `;
+};
+
+const loadProfile = () => {
+  const stored = localStorage.getItem(profileStorageKey);
+  if (!stored) {
+    renderProfile(null);
+    return;
+  }
+
+  const profile = JSON.parse(stored);
+  profileName.value = profile.name;
+  profileAge.value = profile.age;
+  profileMood.value = profile.mood;
+  profileWish.value = profile.wish ?? '';
+  renderProfile(profile);
+};
+
+const saveProfile = (event) => {
+  event.preventDefault();
+  const profile = {
+    name: profileName.value.trim(),
+    age: profileAge.value,
+    mood: profileMood.value,
+    wish: profileWish.value.trim()
+  };
+
+  localStorage.setItem(profileStorageKey, JSON.stringify(profile));
+  renderProfile(profile);
+};
+
+const resetProfile = () => {
+  localStorage.removeItem(profileStorageKey);
+  profileForm.reset();
+  renderProfile(null);
+};
+
 searchInput.addEventListener('input', renderStories);
 moodSelect.addEventListener('change', renderStories);
 fontSize.addEventListener('input', (event) => {
@@ -154,6 +212,9 @@ startReading.addEventListener('click', () => {
 openCatalog.addEventListener('click', () => {
   storyList.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
+profileForm.addEventListener('submit', saveProfile);
+profileReset.addEventListener('click', resetProfile);
 
 setActiveStory(stories[0].id);
 renderStories();
+loadProfile();
