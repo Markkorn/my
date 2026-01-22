@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="evening" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#6d5efc" />
+      <stop offset="100%" stop-color="#ffb676" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#evening)" />
+  <path d="M0 340 C200 300, 420 370, 800 320 V500 H0 Z" fill="#1f2a55" />
+  <path d="M0 380 C180 360, 360 420, 800 360 V500 H0 Z" fill="#0f1a40" />
+  <g>
+    <circle cx="180" cy="220" r="34" fill="#ffd166" />
+    <circle cx="420" cy="190" r="28" fill="#ffe28a" />
+    <circle cx="620" cy="240" r="32" fill="#ffc857" />
+    <path d="M180 254 l0 30" stroke="#ffe8b6" stroke-width="4" />
+    <path d="M420 218 l0 26" stroke="#fff1c9" stroke-width="4" />
+    <path d="M620 272 l0 28" stroke="#ffe0a0" stroke-width="4" />
+  </g>
+  <g fill="#f7b267" opacity="0.8">
+    <circle cx="120" cy="410" r="16" />
+    <circle cx="260" cy="440" r="12" />
+    <circle cx="520" cy="430" r="14" />
+    <circle cx="700" cy="410" r="18" />
+  </g>
+</svg>
