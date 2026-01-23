@@ -41,6 +41,13 @@ body {
   flex-direction: column;
   gap: 24px;
   padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.app > * {
+  position: relative;
+  z-index: 1;
 }
 
 .app__header {
@@ -228,6 +235,12 @@ body {
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px) rotate(-0.5deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 .menu-card img {
@@ -286,6 +299,12 @@ body {
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.7);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
 :root[data-theme='dark'] .gallery-card {
@@ -303,6 +322,89 @@ body {
 .gallery-card figcaption {
   color: var(--muted);
   font-size: 14px;
+}
+
+.sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sparkle {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  animation: sparkle-float 6s ease-in-out infinite;
+}
+
+.sparkle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 214, 102, 0.9), rgba(255, 214, 102, 0));
+  animation: sparkle-pulse 3s ease-in-out infinite;
+}
+
+.sparkle--one {
+  top: 12%;
+  left: 8%;
+  animation-delay: 0s;
+}
+
+.sparkle--two {
+  top: 24%;
+  right: 10%;
+  width: 18px;
+  height: 18px;
+  animation-delay: 1s;
+}
+
+.sparkle--three {
+  bottom: 18%;
+  left: 18%;
+  animation-delay: 2s;
+}
+
+.sparkle--four {
+  bottom: 26%;
+  right: 22%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 1.5s;
+}
+
+.sparkle--five {
+  top: 45%;
+  left: 50%;
+  animation-delay: 0.5s;
+}
+
+@keyframes sparkle-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-12px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes sparkle-pulse {
+  0%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
 }
 
 .panel {
